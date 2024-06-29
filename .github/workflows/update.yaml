@@ -23,7 +23,7 @@ jobs:
     - name: Get local revision if exist
       if: ${{ hashFiles('main/revision') != '' }}
       run: |
-        echo "revision=$(cat main/revision)" >> "$GITHUB_ENV"
+        echo "revision_old=$(cat main/revision)" >> "$GITHUB_ENV"
 
     - name: Setup Python environment
       uses: actions/setup-python@v5
@@ -45,7 +45,7 @@ jobs:
     
     - name: Run script to check update
       run: |
-        python main.py --reset True --init_download True --db_revision $revision
+        python main.py --reset True --init_download True --db_revision $revision_old
       working-directory:
         HatsuboshiToolkit
 
@@ -65,7 +65,7 @@ jobs:
 
     - name: Send Notification to Discord
       uses: sarisia/actions-status-discord@v1
-      if: success()
+      if: ${{ env.revision_old != env.revision}}
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
         nodetail: true
