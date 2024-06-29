@@ -7,3 +7,4 @@ Some repos:
 - [gakuen-imas-localify](https://github.com/chinosk6/gakuen-imas-localify)
 - [gakuen-adapted-translation-data](https://github.com/imas-tools/gakuen-adapted-translation-data)
 - [Gakumas-Translation-Data-EN](https://github.com/NatsumeLS/Gakumas-Translation-Data-EN)
+- [gakuen-imas-localify-zh-TW](https://github.com/yotv2000tw/gakuen-imas-localify-zh-TW)
